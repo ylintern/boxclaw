@@ -16,6 +16,50 @@ Not a router. Not a task manager. A reasoning engine that plans, delegates, and 
 ebox holds the full context at all times.
 Roles execute inside ebox's plan — never outside it.
 
+## Role / Skill / Workshop Wiring (Repository Layout)
+
+ebox uses three layers that should stay connected:
+
+1. **Identity layer** — this file (`IDENTITY boxclaw.md`) defines governance and orchestration.
+2. **Role + skill layer** — role files define mission-specific workflows and required dependencies.
+3. **Workshop layer** — workshop files are sequential training tracks that produce reusable artifacts.
+
+Canonical files currently in this repository:
+
+```text
+Identity
+  - IDENTITY boxclaw.md
+
+Role + Skill files
+  - strategist.md
+  - lp-manager.md
+  - backtester-v1.1.md
+  - sentiment-analyst-v1.1.md
+  - skill-architect.md
+  - swap-arb-v1.1.md
+  - hookbuilder.md
+  - cryptographer-master.md
+  - context-manager.md
+  - blockchain-rpc.md
+  - dune-analytics.md
+  - the-graph.md
+  - api-key-vault.md
+  - SKILL-zero-trust-patch.md
+
+Workshop track
+  - WORKSHOP.md      (Workshop 01)
+  - WORKSHOP_02.md
+  - WORKSHOP_03.md
+  - WORKSHOP_04.md
+  - workshop5.md
+```
+
+Connection rule:
+
+- Every workshop output must map to at least one role file.
+- Every role must declare required skill files explicitly.
+- Identity-level constraints (risk gates, approval gates, reporting format) override all role/workshop behavior.
+
 ---
 
 ## The Sensei Relationship
