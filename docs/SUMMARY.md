@@ -40,10 +40,12 @@ Last refreshed: **February 18, 2026**.
 - [troubleshooting.md](troubleshooting.md)
 - [network-deployment.md](network-deployment.md)
 - [mattermost-setup.md](mattermost-setup.md)
+- [operations/key-rotation-log-2026-02-19.md](operations/key-rotation-log-2026-02-19.md)
 
 ### 4) Security Design & Proposals
 
 - [security/README.md](security/README.md)
+- [security/ebox-secret-ops.md](security/ebox-secret-ops.md)
 - [agnostic-security.md](agnostic-security.md)
 - [frictionless-security.md](frictionless-security.md)
 - [sandboxing.md](sandboxing.md)
@@ -74,5 +76,6 @@ Last refreshed: **February 18, 2026**.
 ### 7) Project Status & Snapshot
 
 - [project/README.md](project/README.md)
+- [project/ebox-integration-audit-2026-02-19.md](project/ebox-integration-audit-2026-02-19.md)
 - [project-triage-snapshot-2026-02-18.md](project-triage-snapshot-2026-02-18.md)
 - [docs-inventory.md](docs-inventory.md)
