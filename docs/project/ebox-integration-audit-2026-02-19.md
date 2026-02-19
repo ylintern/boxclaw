@@ -13,14 +13,18 @@ rg -n "OPENROUTER_API_KEY|OPENAI_API_KEY|ANTHROPIC|GEMINI_API_KEY|GLM_API_KEY|ZA
 
 ## Key Findings
 
-### 1) Cross-integration gaps (missing files / unresolved role dependencies)
+### 1) Cross-integration notes (role orchestration semantics + unresolved dependencies)
 
 - `roles/strategist.md` requires `skills/backtester.md`, but that file does not exist.
 - `roles/swap-arb-v1.1.md` requires `skills/wallet-manager.md`, but that file does not exist.
 - `IDENTITY boxclaw.md` references operational core files (`SOUL.md`, `SKILL.md`, `STATE.md`, `DECISIONS.md`, `BACKLOG.md`) that are not present at repo root.
 
+Role semantics clarification:
+- In this architecture, roles are executable agents. Skills are capability docs used by roles.
+- When Strategist requires Backtester, that is role-to-role delegation (sub-agent or blackboard task manager handoff), not a strategist→skill dependency.
+
 Impact:
-- Role orchestration is partially declarative but not executable end-to-end from local repo artifacts.
+- Role orchestration intent is clear, but some file references still prevent clean end-to-end local execution.
 
 ### 2) Service wiring status vs requested stack
 
@@ -64,14 +68,23 @@ Legend:
 | OpenAI | `OPENAI_API_KEY` | Provided (rotate required) | Runtime provider key. |
 | Anthropic/Claude | `ANTHROPIC_API_KEY`, `ANTHROPIC_ORG_ID` | Provided (rotate required) | Org ID alone is insufficient without active API key. |
 | Gemini | `GEMINI_API_KEY_PRIMARY` / `GEMINI_API_KEY_SECONDARY` | Provided (rotate required) | Prefer one active key + one standby. |
-| Dune Analytics | `DUNE_API_KEY` | **Missing** | Required by `skills/dune-analytics.md` workflows. |
-| OpenRouter (default ZeroClaw path) | `OPENROUTER_API_KEY` | **Missing** (if using default provider) | Required unless `default_provider` switched to another provider. |
+| Dune Analytics | `DUNE_API_KEY` | Provided (rotate required) | Required by `skills/dune-analytics.md` workflows. |
+| OpenRouter (default ZeroClaw path) | `OPENROUTER_API_KEY` | Provided (rotate required) | Required unless `default_provider` switched to another provider. |
 | Brave Search | `BRAVE_API_KEY` | Optional | Needed only when `web_search.provider = "brave"`. |
 | Composio | `COMPOSIO_API_KEY` (`config.composio.api_key`) | Optional | Needed only when Composio tool is enabled. |
-| Telegram channel | `TELEGRAM_BOT_TOKEN` | Optional | Needed only if Telegram channel enabled. |
-| Discord channel | `DISCORD_BOT_TOKEN` | Optional | Needed only if Discord channel enabled. |
+| Telegram channel | `TELEGRAM_BOT_TOKEN` | Ready (rotate required) | User confirmed channel is ready. |
+| Discord channel | `DISCORD_BOT_TOKEN` | Ready (rotate required) | User confirmed channel is ready. |
 | Slack channel | `SLACK_BOT_TOKEN` + app token | Optional | Needed only if Slack channel enabled. |
 | WhatsApp channel | access/verify/app secret | Optional | Needed only if WhatsApp channel enabled. |
+| LiFi Swap API | `LIFI_API_KEY` | Provided (rotate required) | Optional unless LiFi routing/execution is enabled. |
+| Cloudflare account | `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` | Provided (rotate required) | Optional unless Cloudflare-managed edge/tunnel flows are enabled. |
+
+
+## Sensei Contacts (Operator Routing)
+
+- Telegram: `@xBi0_0`
+- Discord: `xbi0_0`
+- Preferred route: either Box channel (Telegram or Discord).
 
 ## Next Steps (execution order)
 
@@ -79,9 +92,9 @@ Legend:
    - Rotate every key previously exposed in plaintext.
    - Populate new values in local `.env.local` only.
 
-2. **Complete missing credential set**
-   - Provide `DUNE_API_KEY`.
-   - Provide `OPENROUTER_API_KEY` (or explicitly set/use another default provider key).
+2. **Complete credential hygiene setup**
+   - Rotate and replace `DUNE_API_KEY` and `OPENROUTER_API_KEY` because they were exposed in plaintext.
+   - Rotate and replace Telegram/Discord tokens before production enablement.
 
 3. **Close integration/documentation gaps**
    - Add missing role dependency files:

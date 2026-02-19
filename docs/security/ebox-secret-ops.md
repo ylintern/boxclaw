@@ -10,6 +10,7 @@ This protocol defines how to store, rotate, and use private keys/API keys for eb
 - Never put raw secrets in `STATE*.md`, `DECISIONS.md`, or role outputs.
 - Keep runtime secrets in local-only files (`.env.local`) or encrypted values (`enc2:`).
 - Rotate any key that was previously pasted in plaintext.
+- Do not paste secrets into chat threads; treat chat as non-secret transport.
 
 ## Supported Secret Names
 
@@ -30,6 +31,9 @@ Use these environment names locally:
 - `ANTHROPIC_API_KEY`
 - `GEMINI_API_KEY_PRIMARY`
 - `GEMINI_API_KEY_SECONDARY`
+- `LIFI_API_KEY`
+- `CLOUDFLARE_ACCOUNT_ID`
+- `CLOUDFLARE_API_TOKEN`
 
 ## Local Setup (Non-Tracked)
 
