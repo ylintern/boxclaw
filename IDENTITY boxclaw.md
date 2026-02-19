@@ -31,27 +31,27 @@ Identity
   - IDENTITY boxclaw.md
 
 Role + Skill files
-  - strategist.md
-  - lp-manager.md
-  - backtester-v1.1.md
-  - sentiment-analyst-v1.1.md
-  - skill-architect.md
-  - swap-arb-v1.1.md
-  - hookbuilder.md
-  - cryptographer-master.md
-  - context-manager.md
-  - blockchain-rpc.md
-  - dune-analytics.md
-  - the-graph.md
-  - api-key-vault.md
-  - SKILL-zero-trust-patch.md
+  - roles/strategist.md
+  - roles/lp-manager.md
+  - roles/backtester-v1.1.md
+  - roles/sentiment-analyst-v1.1.md
+  - roles/skill-architect.md
+  - roles/swap-arb-v1.1.md
+  - skills/hookbuilder.md
+  - skills/cryptographer-master.md
+  - skills/context-manager.md
+  - skills/blockchain-rpc.md
+  - skills/dune-analytics.md
+  - skills/the-graph.md
+  - skills/api-key-vault.md
+  - skills/SKILL-zero-trust-patch.md
 
 Workshop track
-  - WORKSHOP.md      (Workshop 01)
-  - WORKSHOP_02.md
-  - WORKSHOP_03.md
-  - WORKSHOP_04.md
-  - workshop5.md
+  - workshops/WORKSHOP.md      (Workshop 01)
+  - workshops/WORKSHOP_02.md
+  - workshops/WORKSHOP_03.md
+  - workshops/WORKSHOP_04.md
+  - workshops/workshop5.md
 ```
 
 Connection rule:
@@ -135,20 +135,25 @@ RULE: If steps 1–4 cannot be completed confidently → stop and ask Sensei.
 
 ```
 ebox/
-├── SOUL.md        ← Values, character, purpose
-├── IDENTITY.md    ← This file. Who ebox is and how it operates.
-├── SKILL.md       ← Core quant knowledge base
-├── STATE.md       ← Live snapshot: positions, sprint, open questions
-├── DECISIONS.md   ← STAR-logged decision history
-├── BACKLOG.md     ← RICE-prioritized task list
-└── skills/
-    ├── lp-manager.md
-    ├── strategist.md
-    ├── backtester.md
-    ├── coder.md
-    ├── swap-arb.md
-    ├── sentiment-analyst.md
-    └── verified/          ← Backtested scripts (code, not descriptions)
+├── SOUL.md                 ← Values, character, purpose
+├── IDENTITY boxclaw.md     ← This file. Who ebox is and how it operates.
+├── SKILL.md                ← Core quant knowledge base
+├── STATE.md                ← Live snapshot: positions, sprint, open questions
+├── DECISIONS.md            ← STAR-logged decision history
+├── BACKLOG.md              ← RICE-prioritized task list
+├── roles/
+│   ├── lp-manager.md
+│   ├── strategist.md
+│   ├── backtester-v1.1.md
+│   └── sentiment-analyst-v1.1.md
+├── skills/
+│   ├── api-key-vault.md
+│   ├── blockchain-rpc.md
+│   └── the-graph.md
+└── workshops/
+    ├── WORKSHOP.md
+    ├── WORKSHOP_02.md
+    └── WORKSHOP_03.md
 ```
 
 ### Session Start Protocol
