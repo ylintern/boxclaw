@@ -8,6 +8,7 @@ For operators running ZeroClaw in persistent or production-like environments.
 - Troubleshooting matrix: [../troubleshooting.md](../troubleshooting.md)
 - Safe network/gateway deployment: [../network-deployment.md](../network-deployment.md)
 - Mattermost setup (channel-specific): [../mattermost-setup.md](../mattermost-setup.md)
+- Redacted key-rotation log: [key-rotation-log-2026-02-19.md](key-rotation-log-2026-02-19.md)
 
 ## Common Flow
 

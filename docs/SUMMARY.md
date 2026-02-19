@@ -40,6 +40,7 @@ Last refreshed: **February 18, 2026**.
 - [troubleshooting.md](troubleshooting.md)
 - [network-deployment.md](network-deployment.md)
 - [mattermost-setup.md](mattermost-setup.md)
+- [operations/key-rotation-log-2026-02-19.md](operations/key-rotation-log-2026-02-19.md)
 
 ### 4) Security Design & Proposals
 
