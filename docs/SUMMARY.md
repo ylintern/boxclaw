@@ -75,5 +75,6 @@ Last refreshed: **February 18, 2026**.
 ### 7) Project Status & Snapshot
 
 - [project/README.md](project/README.md)
+- [project/ebox-integration-audit-2026-02-19.md](project/ebox-integration-audit-2026-02-19.md)
 - [project-triage-snapshot-2026-02-18.md](project-triage-snapshot-2026-02-18.md)
 - [docs-inventory.md](docs-inventory.md)
